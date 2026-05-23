@@ -1,6 +1,6 @@
 # Project McCaren AI Healthcare Platform
 
-Project McCaren is an enterprise-grade, AI-powered healthcare claims processing, fraud detection, and compliance platform tailored for the Indian healthcare ecosystem. The platform is designed to automate and streamline claims auditing, policy compliance, and package matching for public government schemes such as the Pradhan Mantri Jan Arogya Yojana (PM-JAY) and the Employees' State Insurance Corporation (ESIC).
+Project McCaren is AI-powered healthcare claims processing, fraud detection, and compliance platform tailored for the Indian healthcare ecosystem. The platform is designed to automate and streamline claims auditing, policy compliance, and package matching for public government schemes such as the Pradhan Mantri Jan Arogya Yojana (PM-JAY) and the Employees' State Insurance Corporation (ESIC).
 
 By leveraging a multi-agent artificial intelligence architecture, Project McCaren enables real-time Optical Character Recognition (OCR) billing analysis, automated document integrity and security scanning, predictive treatment cost forecasting, and an intelligent policy Retrieval-Augmented Generation (RAG) assistant.
 

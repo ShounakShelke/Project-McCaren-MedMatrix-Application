@@ -22,7 +22,7 @@ async def extract_bill_legacy(
 ):
     try:
         content = await billImage.read()
-        ocr_result = ocr_agent.run_ocr(content)
+        ocr_result = ocr_agent.run_ocr(content, filename=billImage.filename)
         
         # Create Case
         session_id = uuid.uuid4().hex
@@ -180,7 +180,7 @@ async def verify_card_legacy(
 ):
     try:
         content = await cardImage.read()
-        result = fraud_agent.analyze_card(content, card_type=cardType)
+        result = fraud_agent.analyze_card(content, card_type=cardType, filename=cardImage.filename)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to verify card: {str(e)}")
