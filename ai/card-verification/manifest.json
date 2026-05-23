@@ -1,0 +1,23 @@
+{
+    "name": "Project McCaren - Healthcare Claim Optimizer",
+    "short_name": "Project McCaren",
+    "description": "Maximize your healthcare insurance claims with AI-powered verification",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#F3F4F6",
+    "theme_color": "#10B981",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "assets/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["health", "finance", "utilities"]
+}

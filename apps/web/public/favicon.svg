@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background rounded square - Papaya gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8000"/>
+      <stop offset="100%" style="stop-color:#CC6600"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base box -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- Sheen -->
+  <rect width="64" height="64" rx="14" fill="url(#sheen)"/>
+
+  <!-- Medical cross - white -->
+  <rect x="24" y="8" width="16" height="48" rx="5" fill="white" fill-opacity="0.95"/>
+  <rect x="8" y="24" width="48" height="16" rx="5" fill="white" fill-opacity="0.95"/>
+
+  <!-- Speed bolt - gold overlay -->
+  <polyline points="36,14 27,34 37,34 28,52" fill="none" stroke="#FFD700" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

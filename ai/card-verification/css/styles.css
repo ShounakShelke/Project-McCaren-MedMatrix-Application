@@ -1,0 +1,561 @@
+/* ===== CSS Variables ===== */
+:root {
+    --primary-green: #10B981;
+    --primary-green-dark: #059669;
+    --primary-blue: #3B82F6;
+    --primary-blue-dark: #2563EB;
+    --danger-red: #EF4444;
+    --warning-yellow: #F59E0B;
+    --success-green: #22C55E;
+    --bg-dark: #1F2937;
+    --bg-light: #F3F4F6;
+    --text-dark: #111827;
+    --text-light: #6B7280;
+    --text-white: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --border-color: #E5E7EB;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --radius-lg: 16px;
+}
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* ===== App Container ===== */
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--bg-light);
+    position: relative;
+}
+
+/* ===== Header ===== */
+.header {
+    background: var(--primary-green);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 28px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: -0.5px;
+}
+
+.lang-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--text-white);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    padding: 20px;
+}
+
+/* ===== Screens ===== */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.screen-content {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.screen-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.screen-subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* ===== Card Type Selector ===== */
+.card-type-selector {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.card-type-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.card-type-btn:hover {
+    border-color: var(--primary-green);
+}
+
+.card-type-btn.active {
+    border-color: var(--primary-green);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--primary-green);
+}
+
+.card-icon {
+    font-size: 32px;
+}
+
+/* ===== Upload Section ===== */
+.upload-section {
+    margin-bottom: 20px;
+}
+
+.camera-preview {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--bg-dark);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.camera-preview video,
+.camera-preview canvas,
+.camera-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.camera-preview video.active,
+.camera-preview img.active {
+    display: block;
+}
+
+.camera-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.camera-placeholder.hidden {
+    display: none;
+}
+
+.camera-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.upload-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.btn span {
+    font-size: 18px;
+}
+
+.btn-primary {
+    background: var(--primary-green);
+    color: var(--text-white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-green-dark);
+}
+
+.btn-secondary {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.btn-success {
+    background: var(--success-green);
+    color: var(--text-white);
+}
+
+.btn-success:hover {
+    background: #16A34A;
+}
+
+.btn-camera, .btn-upload {
+    flex: 1;
+}
+
+.btn-capture {
+    background: var(--primary-blue);
+    color: var(--text-white);
+    margin-top: 12px;
+}
+
+.btn-analyze {
+    margin-top: 16px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ===== Processing Screen ===== */
+.processing-content {
+    text-align: center;
+    padding: 40px 24px;
+}
+
+.loader {
+    margin-bottom: 24px;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.processing-title {
+    font-size: 20px;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+}
+
+.processing-steps {
+    text-align: left;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.step:last-child {
+    border-bottom: none;
+}
+
+.step-icon {
+    font-size: 20px;
+}
+
+.step-text {
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.step.completed .step-icon::before {
+    content: '✅';
+}
+
+.step.failed .step-icon::before {
+    content: '❌';
+}
+
+/* ===== Results Screen ===== */
+.result-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.result-badge.valid {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--success-green);
+}
+
+.result-badge.invalid {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger-red);
+}
+
+.result-badge.warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning-yellow);
+}
+
+/* ===== Validity Score ===== */
+.validity-score {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.score-circle {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 12px;
+    position: relative;
+}
+
+.score-circle svg {
+    transform: rotate(-90deg);
+}
+
+.score-circle-bg {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 8;
+}
+
+.score-circle-fill {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.score-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.score-label {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* ===== Result Details ===== */
+.result-details {
+    margin-bottom: 24px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.detail-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.detail-status {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.detail-status.pass {
+    color: var(--success-green);
+}
+
+.detail-status.fail {
+    color: var(--danger-red);
+}
+
+.detail-status.warn {
+    color: var(--warning-yellow);
+}
+
+/* ===== Card Info ===== */
+.card-info {
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.card-info-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-info-item:last-child {
+    border-bottom: none;
+}
+
+.card-info-label {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.card-info-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* ===== Result Actions ===== */
+.result-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.result-actions .btn {
+    flex: 1;
+}
+
+/* ===== Toast Notifications ===== */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 40px);
+    max-width: 440px;
+}
+
+.toast {
+    background: var(--bg-dark);
+    color: var(--text-white);
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideUp 0.3s ease;
+}
+
+.toast.error {
+    background: var(--danger-red);
+}
+
+.toast.success {
+    background: var(--success-green);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 768px) {
+    .app-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        min-height: calc(100vh - 40px);
+    }
+}

@@ -1,0 +1,468 @@
+[
+  {
+    "file": "bill1.jpg",
+    "suggested": 25981,
+    "findings": [
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "TOTAL BILL AMOUNT: Rs. 25981",
+        "lineNum": 6,
+        "amounts": [
+          25981
+        ],
+        "bestAmount": 25981
+      }
+    ],
+    "lastLines": [
+      {
+        "lineNum": 6,
+        "line": "TOTAL BILL AMOUNT: Rs. 25981",
+        "amounts": [
+          25981
+        ]
+      },
+      {
+        "lineNum": 5,
+        "line": "Fracture Cast Rs. 24681",
+        "amounts": [
+          24681
+        ]
+      },
+      {
+        "lineNum": 4,
+        "line": "X-Ray Rs. 800",
+        "amounts": [
+          800
+        ]
+      },
+      {
+        "lineNum": 3,
+        "line": "Consultation Rs. 500",
+        "amounts": [
+          500
+        ]
+      },
+      {
+        "lineNum": 1,
+        "line": "Date: 2026-02-28",
+        "amounts": [
+          2026
+        ]
+      }
+    ]
+  },
+  {
+    "file": "bill2.jpg",
+    "suggested": 5150,
+    "findings": [
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "TOTAL BILL AMOUNT: Rs. 5150",
+        "lineNum": 7,
+        "amounts": [
+          5150
+        ],
+        "bestAmount": 5150
+      }
+    ],
+    "lastLines": [
+      {
+        "lineNum": 7,
+        "line": "TOTAL BILL AMOUNT: Rs. 5150",
+        "amounts": [
+          5150
+        ]
+      },
+      {
+        "lineNum": 6,
+        "line": "Miscellaneous Rs. 720",
+        "amounts": [
+          720
+        ]
+      },
+      {
+        "lineNum": 5,
+        "line": "Investigation Rs. 430",
+        "amounts": [
+          430
+        ]
+      },
+      {
+        "lineNum": 4,
+        "line": "Medicine Rs. 450",
+        "amounts": [
+          450
+        ]
+      },
+      {
+        "lineNum": 3,
+        "line": "Professional Fees Rs. 1200",
+        "amounts": [
+          1200
+        ]
+      }
+    ]
+  },
+  {
+    "file": "bill3.jpg",
+    "suggested": 12340,
+    "findings": [
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "TOTAL BILL AMOUNT: Rs. 12340",
+        "lineNum": 6,
+        "amounts": [
+          12340
+        ],
+        "bestAmount": 12340
+      }
+    ],
+    "lastLines": [
+      {
+        "lineNum": 6,
+        "line": "TOTAL BILL AMOUNT: Rs. 12340",
+        "amounts": [
+          12340
+        ]
+      },
+      {
+        "lineNum": 5,
+        "line": "Medicines Rs. 5040",
+        "amounts": [
+          5040
+        ]
+      },
+      {
+        "lineNum": 4,
+        "line": "Ambulance Rs. 2800",
+        "amounts": [
+          2800
+        ]
+      },
+      {
+        "lineNum": 3,
+        "line": "Emergency Admission Rs. 4500",
+        "amounts": [
+          4500
+        ]
+      },
+      {
+        "lineNum": 1,
+        "line": "Date: 2026-01-10",
+        "amounts": [
+          2026
+        ]
+      }
+    ]
+  },
+  {
+    "file": "bill4.jpg",
+    "suggested": 150,
+    "findings": [
+      {
+        "pattern": "TOTAL_AMOUNT",
+        "priority": 5,
+        "line": "Total Amount | €1,45,000",
+        "lineNum": 14,
+        "amounts": [
+          145000,
+          150
+        ],
+        "bestAmount": 150
+      }
+    ],
+    "lastLines": [
+      {
+        "lineNum": 17,
+        "line": "Conia +313 18340856, or s51- SBBTSARS50",
+        "amounts": [
+          313
+        ]
+      },
+      {
+        "lineNum": 16,
+        "line": "150 Hoanios, Dut. 8, Horahapa",
+        "amounts": [
+          150
+        ]
+      },
+      {
+        "lineNum": 14,
+        "line": "Total Amount | €1,45,000",
+        "amounts": [
+          145000
+        ]
+      },
+      {
+        "lineNum": 11,
+        "line": "[3 operation Theater Fees 270000",
+        "amounts": [
+          270000
+        ]
+      },
+      {
+        "lineNum": 9,
+        "line": "Invoice Number: MAX/SRG/2026/045",
+        "amounts": [
+          2026
+        ]
+      }
+    ]
+  },
+  {
+    "file": "bill5.jpg",
+    "suggested": 6200,
+    "findings": [
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "Total 6,200",
+        "lineNum": 5,
+        "amounts": [
+          6200
+        ],
+        "bestAmount": 6200
+      }
+    ],
+    "lastLines": [
+      {
+        "lineNum": 5,
+        "line": "Total 6,200",
+        "amounts": [
+          6200
+        ]
+      },
+      {
+        "lineNum": 4,
+        "line": "Blood Test Z1,200",
+        "amounts": [
+          1200
+        ]
+      },
+      {
+        "lineNum": 3,
+        "line": "MRI Brain Scan Z 5,000",
+        "amounts": [
+          5000
+        ]
+      },
+      {
+        "lineNum": 2,
+        "line": "f Date: 2026-03-01 3",
+        "amounts": [
+          2026
+        ]
+      }
+    ]
+  },
+  {
+    "file": "dm.webp",
+    "suggested": 5150,
+    "findings": [
+      {
+        "pattern": "AMOUNT_PAYABLE",
+        "priority": 6,
+        "line": "Amount Payable: 5150.00",
+        "lineNum": 24,
+        "amounts": [
+          5150,
+          5150
+        ],
+        "bestAmount": 5150
+      },
+      {
+        "pattern": "NET_AMOUNT",
+        "priority": 9,
+        "line": "Net Amount: 5150.00",
+        "lineNum": 47,
+        "amounts": [
+          5150
+        ],
+        "bestAmount": 5150
+      },
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "Total Bill Amount: 5150.00",
+        "lineNum": 23,
+        "amounts": [
+          5150,
+          5150,
+          5150
+        ],
+        "bestAmount": 5150
+      }
+    ],
+    "lastLines": [
+      {
+        "lineNum": 50,
+        "line": "2018/10/745015 23-10-18 1:21 PM Rs. 5150.00 PAID CREDIT CARD",
+        "amounts": [
+          2018,
+          745015,
+          5150
+        ]
+      },
+      {
+        "lineNum": 47,
+        "line": "Net Amount: 5150.00",
+        "amounts": [
+          5150
+        ]
+      },
+      {
+        "lineNum": 46,
+        "line": "15 803000 23-10-18 1:10 PM Patient Food Charges 120.00 1 120",
+        "amounts": [
+          803000,
+          120,
+          120
+        ]
+      },
+      {
+        "lineNum": 45,
+        "line": "14 802000 23-10-18 1:10 PM Attendant Food Charges 100.00 1 1",
+        "amounts": [
+          802000,
+          100,
+          100
+        ]
+      },
+      {
+        "lineNum": 44,
+        "line": "13 801000 22-10-18 10:29 AM Admission Charges 500.00 1 500.0",
+        "amounts": [
+          801000,
+          500,
+          500
+        ]
+      }
+    ]
+  },
+  {
+    "file": "e5ae41f8-dce0-4542-b393-e2c5eb957909.jpg",
+    "suggested": 4113308,
+    "findings": [],
+    "lastLines": [
+      {
+        "lineNum": 18,
+        "line": "EE 12685092 [Recerved cheque 4113308",
+        "amounts": [
+          4113308
+        ]
+      },
+      {
+        "lineNum": 16,
+        "line": "Ce —————F 5555 54)",
+        "amounts": [
+          5555
+        ]
+      },
+      {
+        "lineNum": 9,
+        "line": "| onlbies mai 1520098",
+        "amounts": [
+          1520098
+        ]
+      }
+    ]
+  },
+  {
+    "file": "WhatsApp Image 2026-03-01 at 1.01.59 AM.jpeg",
+    "suggested": 143.66,
+    "findings": [
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "Total Charges $1,059.40",
+        "lineNum": 26,
+        "amounts": [
+          1059.4,
+          815.74,
+          143.66
+        ],
+        "bestAmount": 143.66
+      },
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "Total Payments $815.74",
+        "lineNum": 27,
+        "amounts": [
+          815.74,
+          143.66,
+          100
+        ],
+        "bestAmount": 100
+      },
+      {
+        "pattern": "TOTAL",
+        "priority": 11,
+        "line": "Total Adjustments $_-143.66",
+        "lineNum": 28,
+        "amounts": [
+          143.66,
+          100,
+          800,
+          803,
+          8155
+        ],
+        "bestAmount": 8155
+      }
+    ],
+    "lastLines": [
+      {
+        "lineNum": 37,
+        "line": "ears 18200 West Wisconsin Avenue",
+        "amounts": [
+          18200
+        ]
+      },
+      {
+        "lineNum": 30,
+        "line": "Please mail payment in full today or contact Patient Financi",
+        "amounts": [
+          800,
+          803,
+          8155
+        ]
+      },
+      {
+        "lineNum": 29,
+        "line": "Please Pay This Amount $100.00",
+        "amounts": [
+          100
+        ]
+      },
+      {
+        "lineNum": 28,
+        "line": "Total Adjustments $_-143.66",
+        "amounts": [
+          143.66
+        ]
+      },
+      {
+        "lineNum": 27,
+        "line": "Total Payments $815.74",
+        "amounts": [
+          815.74
+        ]
+      }
+    ]
+  },
+  {
+    "file": "WhatsApp Image 2026-03-01 at 1.02.10 AM.jpeg",
+    "suggested": null,
+    "findings": [],
+    "lastLines": []
+  },
+  {
+    "file": "WhatsApp Image 2026-03-01 at 1.02.21 AM.jpeg",
+    "suggested": null,
+    "findings": [],
+    "lastLines": []
+  }
+]

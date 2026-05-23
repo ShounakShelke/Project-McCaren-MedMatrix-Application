@@ -1,0 +1,43 @@
+{
+    "fracture": {
+        "pmjay": {
+            "covered": true,
+            "coveragePct": 0.8,
+            "maxAmount": 50000
+        },
+        "esic": {
+            "covered": true,
+            "maxAmount": 7000
+        },
+        "group": {
+            "covered": false
+        }
+    },
+    "accident_emergency": {
+        "pmjay": {
+            "covered": true,
+            "coveragePct": 0.7,
+            "maxAmount": 100000
+        },
+        "esic": {
+            "covered": true,
+            "maxAmount": 10000
+        },
+        "group": {
+            "covered": true,
+            "coveragePct": 0.5,
+            "maxAmount": 50000
+        }
+    },
+    "default": {
+        "pmjay": {
+            "covered": false
+        },
+        "esic": {
+            "covered": false
+        },
+        "group": {
+            "covered": false
+        }
+    }
+}

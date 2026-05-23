@@ -1,0 +1,134 @@
+{
+    "pmjay": {
+        "card_format": {
+            "type": "Ayushman Bharat PM-JAY",
+            "issuer": "National Health Authority",
+            "dimensions": {
+                "width_mm": 85.6,
+                "height_mm": 53.98,
+                "aspect_ratio": 1.586
+            },
+            "elements": {
+                "qr_code": {
+                    "position": "top-right",
+                    "size": "20x20mm",
+                    "contains": ["beneficiary_id", "name", "family_id", "state_code"]
+                },
+                "photo": {
+                    "position": "left",
+                    "size": "25x30mm"
+                },
+                "hologram": {
+                    "position": "bottom-right",
+                    "type": "NHA_security_hologram"
+                },
+                "logo": {
+                    "position": "top-center",
+                    "type": "ayushman_bharat_logo"
+                }
+            }
+        },
+        "id_formats": {
+            "abha_id": {
+                "pattern": "^\\d{2}-?\\d{4}-?\\d{4}-?\\d{4}$",
+                "length": 14,
+                "checksum": "luhn",
+                "example": "91-1234-5678-9012"
+            },
+            "pmjay_id": {
+                "pattern": "^[A-Z]{2}\\d{12}$",
+                "length": 14,
+                "format": "STATE(2)+DISTRICT(3)+FAMILY(7)+MEMBER(2)",
+                "example": "MH123456789001"
+            }
+        },
+        "state_codes": {
+            "AP": "Andhra Pradesh",
+            "AR": "Arunachal Pradesh",
+            "AS": "Assam",
+            "BR": "Bihar",
+            "CG": "Chhattisgarh",
+            "GA": "Goa",
+            "GJ": "Gujarat",
+            "HR": "Haryana",
+            "HP": "Himachal Pradesh",
+            "JK": "Jammu & Kashmir",
+            "JH": "Jharkhand",
+            "KA": "Karnataka",
+            "KL": "Kerala",
+            "MP": "Madhya Pradesh",
+            "MH": "Maharashtra",
+            "MN": "Manipur",
+            "ML": "Meghalaya",
+            "MZ": "Mizoram",
+            "NL": "Nagaland",
+            "OD": "Odisha",
+            "PB": "Punjab",
+            "RJ": "Rajasthan",
+            "SK": "Sikkim",
+            "TN": "Tamil Nadu",
+            "TS": "Telangana",
+            "TR": "Tripura",
+            "UP": "Uttar Pradesh",
+            "UK": "Uttarakhand",
+            "WB": "West Bengal",
+            "AN": "Andaman & Nicobar",
+            "CH": "Chandigarh",
+            "DN": "Dadra & Nagar Haveli",
+            "DD": "Daman & Diu",
+            "DL": "Delhi",
+            "LD": "Lakshadweep",
+            "PY": "Puducherry"
+        },
+        "visual_markers": {
+            "logo_colors": ["#FF6B00", "#138808", "#000080"],
+            "card_colors": ["#FFFFFF", "#FFF7E6"],
+            "text_colors": ["#000000", "#333333"],
+            "security_features": [
+                "hologram",
+                "microprint",
+                "uv_reactive_ink",
+                "qr_code"
+            ]
+        },
+        "validation_weights": {
+            "qr_code": 0.35,
+            "id_format": 0.25,
+            "hologram": 0.20,
+            "tampering": 0.20
+        }
+    },
+    "esic": {
+        "card_format": {
+            "type": "ESIC Pehchan Card",
+            "issuer": "Employees' State Insurance Corporation",
+            "dimensions": {
+                "width_mm": 85.6,
+                "height_mm": 53.98,
+                "aspect_ratio": 1.586
+            }
+        },
+        "id_formats": {
+            "insurance_number": {
+                "pattern": "^\\d{17}$",
+                "length": 17,
+                "format": "REGION(2)+SUBREGION(2)+OFFICE(3)+IP(10)",
+                "example": "11011234567890123"
+            }
+        },
+        "region_codes": {
+            "11": "Delhi",
+            "12": "Haryana",
+            "13": "Punjab",
+            "14": "Rajasthan",
+            "15": "UP East",
+            "16": "UP West",
+            "17": "Bihar",
+            "21": "Gujarat",
+            "22": "Maharashtra",
+            "31": "Karnataka",
+            "32": "Tamil Nadu",
+            "33": "Kerala"
+        }
+    }
+}

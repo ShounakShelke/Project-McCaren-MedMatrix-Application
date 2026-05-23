@@ -1,0 +1,12 @@
+{
+  "filename": "pmjay-fake-003.png",
+  "type": "fake",
+  "card_type": "PMJAY",
+  "test_date": "2026-03-01",
+  "collection_notes": "Fake card - Hologram removed",
+  "tampering_type": "missing_hologram",
+  "tampering_technique": "Clone tool to remove hologram area, replaced with white background",
+  "expected_validation": { "is_valid": false, "target_score_min": 0.0, "target_score_max": 0.50 },
+  "features": { "qr_code": true, "qr_readable": true, "hologram": false, "logo": true, "photo": true, "text_readable": true, "visible_tampering": true },
+  "actual_test_results": { "overall_score": null, "qr_score": null, "hologram_score": null, "id_format_score": null, "tampering_score": null, "detected_flags": null, "passed": null, "test_date": null }
+}

@@ -1,0 +1,33 @@
+{
+  "filename": "pmjay-fake-001.png",
+  "type": "fake",
+  "card_type": "PMJAY",
+  "test_date": "2026-03-01",
+  "collection_notes": "Fake card - QR code removed",
+  "tampering_type": "missing_qr",
+  "tampering_technique": "Deleted QR code area with clone tool",
+  "expected_validation": {
+    "is_valid": false,
+    "target_score_min": 0.0,
+    "target_score_max": 0.50
+  },
+  "features": {
+    "qr_code": false,
+    "qr_readable": false,
+    "hologram": true,
+    "logo": true,
+    "photo": true,
+    "text_readable": true,
+    "visible_tampering": true
+  },
+  "actual_test_results": {
+    "overall_score": null,
+    "qr_score": null,
+    "hologram_score": null,
+    "id_format_score": null,
+    "tampering_score": null,
+    "detected_flags": null,
+    "passed": null,
+    "test_date": null
+  }
+}

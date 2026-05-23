@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project McCaren - Maximize Your Healthcare Claims</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10B981">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">💰</span>
+                <span class="logo-text">Project McCaren</span>
+            </div>
+            <div class="header-actions">
+                <button class="lang-toggle" id="langToggle">EN/हि</button>
+            </div>
+        </header>
+
+        <!-- Main Content - Screen Navigation -->
+        <main class="main-content">
+            <!-- Screen 1: Upload -->
+            <section class="screen active" id="screen-upload">
+                <div class="screen-content">
+                    <h1 class="screen-title">Verify Your Insurance Card</h1>
+                    <p class="screen-subtitle">Upload PMJAY or ESIC card to check validity</p>
+
+                    <!-- Card Type Selection -->
+                    <div class="card-type-selector">
+                        <button class="card-type-btn active" data-type="pmjay">
+                            <span class="card-icon">🏥</span>
+                            <span>PM-JAY</span>
+                        </button>
+                        <button class="card-type-btn" data-type="esic">
+                            <span class="card-icon">👷</span>
+                            <span>ESIC</span>
+                        </button>
+                    </div>
+
+                    <!-- Camera/Upload Section -->
+                    <div class="upload-section">
+                        <div class="camera-preview" id="cameraPreview">
+                            <video id="videoStream" autoplay playsinline></video>
+                            <canvas id="captureCanvas"></canvas>
+                            <img id="previewImage" alt="Card preview">
+                            <div class="camera-placeholder" id="cameraPlaceholder">
+                                <span class="camera-icon">📷</span>
+                                <p>Take photo of your card</p>
+                            </div>
+                        </div>
+
+                        <div class="upload-buttons">
+                            <button class="btn btn-primary btn-camera" id="btnCamera">
+                                <span>📸</span> Take Photo
+                            </button>
+                            <button class="btn btn-secondary btn-upload" id="btnUpload">
+                                <span>📁</span> Upload
+                            </button>
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                        </div>
+
+                        <button class="btn btn-capture hidden" id="btnCapture">
+                            <span>✓</span> Capture
+                        </button>
+                    </div>
+
+                    <!-- Analyze Button -->
+                    <button class="btn btn-success btn-analyze hidden" id="btnAnalyze">
+                        <span>🔍</span> Verify Card
+                    </button>
+                </div>
+            </section>
+
+            <!-- Screen 2: Processing -->
+            <section class="screen" id="screen-processing">
+                <div class="screen-content processing-content">
+                    <div class="loader">
+                        <div class="loader-spinner"></div>
+                    </div>
+                    <h2 class="processing-title">Verifying Card...</h2>
+                    <div class="processing-steps">
+                        <div class="step" id="step-qr">
+                            <span class="step-icon">⏳</span>
+                            <span class="step-text">Scanning QR Code</span>
+                        </div>
+                        <div class="step" id="step-hologram">
+                            <span class="step-icon">⏳</span>
+                            <span class="step-text">Checking Hologram</span>
+                        </div>
+                        <div class="step" id="step-mrn">
+                            <span class="step-icon">⏳</span>
+                            <span class="step-text">Validating ID Format</span>
+                        </div>
+                        <div class="step" id="step-tamper">
+                            <span class="step-icon">⏳</span>
+                            <span class="step-text">Detecting Tampering</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 3: Results -->
+            <section class="screen" id="screen-results">
+                <div class="screen-content">
+                    <div class="result-header" id="resultHeader">
+                        <!-- Dynamic: Valid/Invalid badge -->
+                    </div>
+
+                    <div class="validity-score" id="validityScore">
+                        <!-- Dynamic: Circular progress -->
+                    </div>
+
+                    <div class="result-details" id="resultDetails">
+                        <!-- Dynamic: Validation checks -->
+                    </div>
+
+                    <div class="card-info" id="cardInfo">
+                        <!-- Dynamic: Extracted card info -->
+                    </div>
+
+                    <div class="result-actions">
+                        <button class="btn btn-primary" id="btnNewScan">
+                            <span>📷</span> Scan Another Card
+                        </button>
+                        <button class="btn btn-secondary" id="btnProceedClaim">
+                            <span>➡️</span> Proceed to Claim
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@aspect-build/aspect-rules-js@0.5.0/dist/rules_js.min.js"></script>
+    <script src="https://unpkg.com/@aspect-build/aspect-rules-ts@0.5.0/dist/rules_ts.min.js"></script>
+    <script src="https://unpkg.com/@aspect-build/aspect-rules-jest@0.5.0/dist/rules_jest.min.js"></script>
+    <script src="https://unpkg.com/@aspect-build/aspect-rules-js@0.5.0/dist/rules_js.min.js"></script>
+    <script src="https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/model-inference.js"></script>
+    <script src="js/validators/pmjay-validator.js"></script>
+    <script src="js/validators/esic-validator.js"></script>
+    <script src="js/detectors/qr-scanner.js"></script>
+    <script src="js/detectors/hologram-detector.js"></script>
+    <script src="js/detectors/tamper-detector.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

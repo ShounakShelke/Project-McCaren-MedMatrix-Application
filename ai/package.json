@@ -1,0 +1,17 @@
+{
+  "name": "project-mccaren-ai-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test-a": "tsx track-a/test.ts",
+    "test-b": "tsx track-b/test.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/node": "^25.3.3",
+    "@zxing/library": "^0.21.3",
+    "tesseract.js": "^7.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

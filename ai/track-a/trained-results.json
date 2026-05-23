@@ -1,0 +1,62 @@
+[
+  {
+    "file": "bill1.jpg",
+    "amount": 25981,
+    "pattern": "TOTAL_BILL_AMOUNT",
+    "line": "TOTAL BILL AMOUNT: Rs. 25981"
+  },
+  {
+    "file": "bill2.jpg",
+    "amount": 5150,
+    "pattern": "TOTAL_BILL_AMOUNT",
+    "line": "TOTAL BILL AMOUNT: Rs. 5150"
+  },
+  {
+    "file": "bill3.jpg",
+    "amount": 12340,
+    "pattern": "TOTAL_BILL_AMOUNT",
+    "line": "TOTAL BILL AMOUNT: Rs. 12340"
+  },
+  {
+    "file": "bill4.jpg",
+    "amount": 145000,
+    "pattern": "TOTAL_AMOUNT",
+    "line": "Total Amount | €1,45,000"
+  },
+  {
+    "file": "bill5.jpg",
+    "amount": 6200,
+    "pattern": "TOTAL",
+    "line": "Total 6,200"
+  },
+  {
+    "file": "dm.webp",
+    "amount": 5150,
+    "pattern": "TOTAL_BILL_AMOUNT",
+    "line": "Total Bill Amount: 5150.00"
+  },
+  {
+    "file": "e5ae41f8-dce0-4542-b393-e2c5eb957909.jpg",
+    "amount": 4113308,
+    "pattern": "BOTTOM_LARGEST",
+    "line": "EE 12685092 [Recerved cheque 4113308"
+  },
+  {
+    "file": "WhatsApp Image 2026-03-01 at 1.01.59 AM.jpeg",
+    "amount": 100,
+    "pattern": "PLEASE_PAY",
+    "line": "Please Pay This Amount $100.00"
+  },
+  {
+    "file": "WhatsApp Image 2026-03-01 at 1.02.10 AM.jpeg",
+    "amount": null,
+    "pattern": "NOT_FOUND",
+    "line": null
+  },
+  {
+    "file": "WhatsApp Image 2026-03-01 at 1.02.21 AM.jpeg",
+    "amount": null,
+    "pattern": "NOT_FOUND",
+    "line": null
+  }
+]

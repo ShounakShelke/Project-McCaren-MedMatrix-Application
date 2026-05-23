@@ -1,0 +1,10 @@
+{
+  "filename": "pmjay-genuine-003.png",
+  "type": "genuine",
+  "card_type": "PMJAY",
+  "test_date": "2026-03-01",
+  "collection_notes": "Genuine card variation 3",
+  "expected_validation": { "is_valid": true, "target_score_min": 0.85, "target_score_max": 1.0 },
+  "features": { "qr_code": true, "qr_readable": true, "hologram": true, "logo": true, "photo": true, "text_readable": true, "no_visible_tampering": true },
+  "actual_test_results": { "overall_score": null, "qr_score": null, "hologram_score": null, "id_format_score": null, "tampering_score": null, "passed": null, "test_date": null }
+}

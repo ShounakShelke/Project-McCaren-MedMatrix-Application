@@ -1,0 +1,20 @@
+{
+    "watch": [
+        "server.ts",
+        "routes",
+        "controllers",
+        "services",
+        "repositories",
+        "middleware",
+        "types"
+    ],
+    "ext": "ts,json",
+    "ignore": [
+        "node_modules",
+        "dist",
+        "public"
+    ],
+    "exec": "tsx server.ts",
+    "legacyWatch": true,
+    "delay": "1000"
+}

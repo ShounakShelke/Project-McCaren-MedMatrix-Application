@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project McCaren - Card Validator Test Suite</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+            background: #f3f4f6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #10B981;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+        }
+        .test-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .test-card h3 {
+            margin-bottom: 15px;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+        .test-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            max-height: 250px;
+            object-fit: cover;
+        }
+        .results {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .result-row:last-child { border-bottom: none; }
+        .result-label { font-weight: 600; color: #6b7280; }
+        .result-value { font-weight: 600; }
+        .score { color: #10B981; }
+        .score.low { color: #ef4444; }
+        .score.medium { color: #f59e0b; }
+        .overall-score {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .overall-score.valid {
+            background: #dcfce7;
+            color: #15803d;
+        }
+        .overall-score.invalid {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        .overall-score.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .flags {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        .flags.error {
+            background: #fee2e2;
+            border-left-color: #ef4444;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-test {
+            background: #10B981;
+            color: white;
+        }
+        .btn-test:hover { background: #059669; }
+        .btn-export {
+            background: #3B82F6;
+            color: white;
+        }
+        .btn-export:hover { background: #2563EB; }
+        .summary {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .summary-item {
+            text-align: center;
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+        .summary-item .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #10B981;
+        }
+        .summary-item .label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+        }
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #e5e7eb;
+            border-top-color: #10B981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Project McCaren - Card Validator Test Suite</h1>
+
+        <div class="summary">
+            <h2>Test Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="value" id="totalTests">0</div>
+                    <div class="label">Total Tests</div>
+                </div>
+                <div class="summary-item">
+                    <div class="value" id="passedTests">0</div>
+                    <div class="label">Passed</div>
+                </div>
+                <div class="summary-item">
+                    <div class="value" id="failedTests">0</div>
+                    <div class="label">Failed</div>
+                </div>
+                <div class="summary-item">
+                    <div class="value" id="avgScore">0%</div>
+                    <div class="label">Avg Score</div>
+                </div>
+            </div>
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="btn btn-test" onclick="runAllTests()">Run All Tests</button>
+                <button class="btn btn-export" onclick="exportResults()">Export Results</button>
+            </div>
+        </div>
+
+        <div class="test-grid" id="testGrid"></div>
+    </div>
+
+    <script>
+        // Test configurations for all 10 cards
+        const testConfigs = [
+            // Genuine Cards
+            {
+                name: "Genuine Card 1",
+                type: "genuine",
+                filename: "pmjay-genuine-001.png",
+                expectedType: "genuine",
+                expectedScoreMin: 0.85,
+                expectedScoreMax: 1.0,
+                description: "Perfect genuine card - baseline test"
+            },
+            {
+                name: "Genuine Card 2",
+                type: "genuine",
+                filename: "pmjay-genuine-002.png",
+                expectedType: "genuine",
+                expectedScoreMin: 0.85,
+                expectedScoreMax: 1.0,
+                description: "Genuine card - variation 2"
+            },
+            {
+                name: "Genuine Card 3",
+                type: "genuine",
+                filename: "pmjay-genuine-003.png",
+                expectedType: "genuine",
+                expectedScoreMin: 0.85,
+                expectedScoreMax: 1.0,
+                description: "Genuine card - variation 3"
+            },
+            {
+                name: "Genuine Card 4",
+                type: "genuine",
+                filename: "pmjay-genuine-004.png",
+                expectedType: "genuine",
+                expectedScoreMin: 0.85,
+                expectedScoreMax: 1.0,
+                description: "Genuine card - variation 4"
+            },
+            {
+                name: "Genuine Card 5",
+                type: "genuine",
+                filename: "pmjay-genuine-005.png",
+                expectedType: "genuine",
+                expectedScoreMin: 0.85,
+                expectedScoreMax: 1.0,
+                description: "Genuine card - variation 5"
+            },
+            // Fake Cards
+            {
+                name: "Fake Card 1 (No QR)",
+                type: "fake",
+                filename: "pmjay-fake-001.png",
+                expectedType: "fake",
+                expectedTampering: "missing_qr",
+                expectedScoreMin: 0.0,
+                expectedScoreMax: 0.50,
+                description: "Fake - QR code removed"
+            },
+            {
+                name: "Fake Card 2 (Font Mismatch)",
+                type: "fake",
+                filename: "pmjay-fake-002.png",
+                expectedType: "fake",
+                expectedTampering: "font_mismatch",
+                expectedScoreMin: 0.0,
+                expectedScoreMax: 0.50,
+                description: "Fake - Font changed"
+            },
+            {
+                name: "Fake Card 3 (Missing Hologram)",
+                type: "fake",
+                filename: "pmjay-fake-003.png",
+                expectedType: "fake",
+                expectedTampering: "no_hologram",
+                expectedScoreMin: 0.0,
+                expectedScoreMax: 0.50,
+                description: "Fake - Hologram removed"
+            },
+            {
+                name: "Fake Card 4 (ID Tampered)",
+                type: "fake",
+                filename: "pmjay-fake-004.png",
+                expectedType: "fake",
+                expectedTampering: "invalid_id",
+                expectedScoreMin: 0.0,
+                expectedScoreMax: 0.50,
+                description: "Fake - ID edited"
+            },
+            {
+                name: "Fake Card 5 (Color Shifted)",
+                type: "fake",
+                filename: "pmjay-fake-005.png",
+                expectedType: "fake",
+                expectedTampering: "color_shift",
+                expectedScoreMin: 0.0,
+                expectedScoreMax: 0.50,
+                description: "Fake - Color shifted areas"
+            }
+        ];
+
+        let testResults = [];
+
+        // Initialize test cards on load
+        window.addEventListener('load', initializeTests);
+
+        function initializeTests() {
+            const grid = document.getElementById('testGrid');
+            
+            testConfigs.forEach((config, index) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'test-card';
+                cardDiv.id = `test-${index}`;
+                cardDiv.innerHTML = `
+                    <h3>${config.name}</h3>
+                    <p style="color: #6b7280; font-size: 13px; margin-bottom: 10px;">${config.description}</p>
+                    <img id="img-${index}" src="" alt="${config.name}" style="display: none;">
+                    <div class="loading" id="loading-${index}">
+                        <div class="spinner"></div>
+                        <p style="margin-top: 10px;">Waiting to load image...</p>
+                    </div>
+                    <div class="results" id="results-${index}" style="display: none;">
+                        <div class="overall-score" id="score-${index}">-</div>
+                        <div id="details-${index}"></div>
+                        <div id="flags-${index}"></div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-test" onclick="testCard(${index})">Test Card</button>
+                    </div>
+                `;
+                grid.appendChild(cardDiv);
+            });
+        }
+
+        async function testCard(index) {
+            const config = testConfigs[index];
+            const loading = document.getElementById(`loading-${index}`);
+            const results = document.getElementById(`results-${index}`);
+            const img = document.getElementById(`img-${index}`);
+            
+            loading.style.display = 'flex';
+            results.style.display = 'none';
+
+            try {
+                // Load image
+                img.src = `data/cards/pmjay/${config.type}/${config.filename}`;
+                
+                await new Promise((resolve, reject) => {
+                    img.onload = resolve;
+                    img.onerror = reject;
+                });
+                img.style.display = 'block';
+
+                // Mock validation (replace with actual validator)
+                const result = await mockValidate(img, config);
+
+                // Display results
+                displayResult(index, result, config);
+
+                // Store result
+                testResults[index] = {
+                    config,
+                    result,
+                    timestamp: new Date(),
+                    passed: checkPassed(result, config)
+                };
+
+                updateSummary();
+
+            } catch (error) {
+                console.error(`Error testing card ${index}:`, error);
+                loading.innerHTML = `<p style="color: red;">Error loading image: ${error.message}</p>`;
+            }
+        }
+
+        async function mockValidate(img, config) {
+            // Simulate validator - replace with actual PMJAYValidator call
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    let score = 0.5;
+                    let checks = {};
+
+                    if (config.type === 'genuine') {
+                        score = 0.92;
+                        checks = {
+                            qrCode: { passed: true, score: 0.95 },
+                            idFormat: { passed: true, score: 0.90 },
+                            hologram: { passed: true, score: 0.88 },
+                            tampering: { passed: true, score: 0.91 }
+                        };
+                    } else {
+                        score = 0.35;
+                        checks = {
+                            qrCode: { passed: false, score: 0.1 },
+                            idFormat: { passed: true, score: 0.85 },
+                            hologram: { passed: false, score: 0.3 },
+                            tampering: { passed: false, score: 0.4 }
+                        };
+                    }
+
+                    resolve({
+                        isValid: config.type === 'genuine',
+                        overallScore: score,
+                        checks,
+                        flags: config.type === 'fake' ? [config.expectedTampering || 'tampering_detected'] : [],
+                        extractedInfo: {
+                            cardType: 'PMJAY',
+                            beneficiaryId: 'MH000000000001',
+                            name: 'Demo Patient'
+                        }
+                    });
+                }, 1000);
+            });
+        }
+
+        function displayResult(index, result, config) {
+            const loading = document.getElementById(`loading-${index}`);
+            const results = document.getElementById(`results-${index}`);
+            const scoreDiv = document.getElementById(`score-${index}`);
+            const detailsDiv = document.getElementById(`details-${index}`);
+            const flagsDiv = document.getElementById(`flags-${index}`);
+
+            loading.style.display = 'none';
+            results.style.display = 'block';
+
+            // Score
+            const scorePercent = Math.round(result.overallScore * 100);
+            scoreDiv.textContent = `${scorePercent}%`;
+            
+            if (config.type === 'genuine') {
+                scoreDiv.className = 'overall-score ' + (result.overallScore >= 0.85 ? 'valid' : 'warning');
+            } else {
+                scoreDiv.className = 'overall-score ' + (result.overallScore <= 0.50 ? 'invalid' : 'warning');
+            }
+
+            // Details
+            let html = '';
+            Object.entries(result.checks).forEach(([key, check]) => {
+                const scoreClass = check.score >= 0.8 ? 'score' : check.score >= 0.5 ? 'score medium' : 'score low';
+                html += `
+                    <div class="result-row">
+                        <span class="result-label">${key}</span>
+                        <span class="result-value ${scoreClass}">${Math.round(check.score * 100)}%</span>
+                    </div>
+                `;
+            });
+            detailsDiv.innerHTML = html;
+
+            // Flags
+            if (result.flags && result.flags.length > 0) {
+                flagsDiv.innerHTML = `
+                    <div class="flags ${config.type === 'fake' ? 'error' : ''}">
+                        <strong>⚠️ Flags:</strong><br>
+                        ${result.flags.map(f => `• ${f}`).join('<br>')}
+                    </div>
+                `;
+            } else {
+                flagsDiv.innerHTML = '';
+            }
+        }
+
+        function checkPassed(result, config) {
+            if (config.type === 'genuine') {
+                return result.overallScore >= config.expectedScoreMin;
+            } else {
+                return result.overallScore <= config.expectedScoreMax;
+            }
+        }
+
+        function updateSummary() {
+            const total = testResults.filter(r => r !== undefined).length;
+            const passed = testResults.filter(r => r && r.passed).length;
+            const failed = total - passed;
+            const avgScore = total > 0 
+                ? (testResults.filter(r => r).reduce((s, r) => s + r.result.overallScore, 0) / total * 100).toFixed(0)
+                : 0;
+
+            document.getElementById('totalTests').textContent = total;
+            document.getElementById('passedTests').textContent = passed;
+            document.getElementById('failedTests').textContent = failed;
+            document.getElementById('avgScore').textContent = avgScore + '%';
+        }
+
+        async function runAllTests() {
+            for (let i = 0; i < testConfigs.length; i++) {
+                await testCard(i);
+                await new Promise(r => setTimeout(r, 500));
+            }
+        }
+
+        function exportResults() {
+            const report = {
+                timestamp: new Date().toISOString(),
+                totalTests: testResults.length,
+                passed: testResults.filter(r => r.passed).length,
+                failed: testResults.filter(r => !r.passed).length,
+                results: testResults.map((r, i) => ({
+                    testName: testConfigs[i].name,
+                    score: r.result.overallScore,
+                    passed: r.passed,
+                    flags: r.result.flags
+                }))
+            };
+
+            // Download JSON
+            const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `validation-results-${Date.now()}.json`;
+            a.click();
+        }
+    </script>
+</body>
+</html>

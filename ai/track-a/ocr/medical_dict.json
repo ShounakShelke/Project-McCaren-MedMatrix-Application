@@ -1,0 +1,9 @@
+{
+  "orthopedic_minor": ["fracture", "plaster", "dislocation", "sprain", "cast", "ORT", "immobilization"],
+  "orthopedic_major": ["surgery", "implant", "arthroscopy", "replacement", "osteotomy", "fixation"],
+  "emergency": ["ER", "trauma", "ambulance", "emergency", "casualty", "admission"],
+  "opd_general": ["consultation", "OPD", "checkup", "general", "physician", "medicine"],
+  "specialist": ["dermatology", "cardiology", "neurology", "orthopedic", "gynaecology"],
+  "investigation": ["X-ray", "ultrasound", "CT scan", "MRI", "blood test", "ECG"],
+  "hospital_indicators": ["Govt", "Government", "ESIC", "Civil", "General", "District"]
+}

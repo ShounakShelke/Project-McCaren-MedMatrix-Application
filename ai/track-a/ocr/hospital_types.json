@@ -1,0 +1,6 @@
+{
+  "govt": ["Govt", "Government", "Civil", "District", "General Hospital"],
+  "esic": ["ESIC", "Employees State", "ESI"],
+  "private": ["Private", "Apollo", "Fortis", "Max", "Medanta"],
+  "cghs": ["CGHS", "Central Government"]
+}

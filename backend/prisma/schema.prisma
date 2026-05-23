@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Case {
+  id        Int      @id @default(autoincrement())
+  sessionId String
+  createdAt DateTime @default(now())
+  bill      Bill?
+  claims    Claim[]
+}
+
+model Bill {
+  id            Int      @id @default(autoincrement())
+  caseId        Int      @unique
+  case          Case     @relation(fields: [caseId], references: [id])
+  hospitalName  String?
+  treatment     String?
+  treatmentKey  String?
+  amount        Float
+  admissionDate String?
+  dischargeDate String?
+  createdAt     DateTime @default(now())
+}
+
+model Claim {
+  id        Int      @id @default(autoincrement())
+  caseId    Int
+  case      Case     @relation(fields: [caseId], references: [id])
+  scheme    String
+  eligible  Boolean
+  amount    Float
+  reason    String
+  pdfUrl    String?
+  createdAt DateTime @default(now())
+}

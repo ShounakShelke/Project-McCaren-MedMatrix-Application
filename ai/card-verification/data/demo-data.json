@@ -1,0 +1,75 @@
+{
+    "demo_cards": [
+        {
+            "id": "demo-genuine-01",
+            "type": "pmjay",
+            "filename": "pmjay-genuine-demo.jpg",
+            "expected_result": {
+                "is_valid": true,
+                "score": 0.92,
+                "qr_valid": true,
+                "hologram_detected": true,
+                "tampering_score": 0.95,
+                "extracted_info": {
+                    "beneficiary_id": "MH123456789001",
+                    "name": "Rajesh Kumar",
+                    "family_id": "MH1234567",
+                    "state": "Maharashtra"
+                }
+            }
+        },
+        {
+            "id": "demo-fake-01",
+            "type": "pmjay",
+            "filename": "pmjay-fake-demo.jpg",
+            "expected_result": {
+                "is_valid": false,
+                "score": 0.23,
+                "qr_valid": false,
+                "hologram_detected": false,
+                "tampering_score": 0.35,
+                "flags": ["font_mismatch", "no_qr_code", "missing_hologram"]
+            }
+        },
+        {
+            "id": "demo-borderline-01",
+            "type": "pmjay",
+            "filename": "pmjay-borderline-demo.jpg",
+            "expected_result": {
+                "is_valid": false,
+                "score": 0.58,
+                "qr_valid": true,
+                "hologram_detected": false,
+                "tampering_score": 0.65,
+                "flags": ["low_hologram_confidence"]
+            }
+        },
+        {
+            "id": "demo-esic-01",
+            "type": "esic",
+            "filename": "esic-genuine-demo.jpg",
+            "expected_result": {
+                "is_valid": true,
+                "score": 0.88,
+                "insurance_number_valid": true,
+                "extracted_info": {
+                    "insurance_number": "11011234567890123",
+                    "ip_name": "Suresh Sharma",
+                    "region": "Delhi"
+                }
+            }
+        }
+    ],
+    "test_qr_data": [
+        {
+            "valid_pmjay_qr": "MH123456789001|Rajesh Kumar|MH1234567|MH",
+            "valid_pmjay_json": "{\"beneficiaryId\":\"MH123456789001\",\"name\":\"Rajesh Kumar\",\"familyId\":\"MH1234567\",\"state\":\"MH\"}",
+            "invalid_qr": "INVALID_DATA_12345"
+        }
+    ],
+    "test_ids": {
+        "valid_abha": ["91-1234-5678-9012", "14-5678-9012-3456"],
+        "valid_pmjay": ["MH123456789001", "UP987654321002", "KA456789012003"],
+        "invalid_ids": ["123456", "XX999999999999", "AB12345"]
+    }
+}

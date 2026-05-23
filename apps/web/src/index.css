@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* McLaren Papaya Design System */
+:root {
+  --papaya: #FF8000;
+  --papaya-light: #FFA040;
+  --papaya-dark: #CC6600;
+  --gold: #FFD700;
+  --anthracite: #111111;
+  --anthracite-light: #1e1e1e;
+  --anthracite-card: #1a1a1a;
+  --white: #FFFFFF;
+  --racing-red: #FF0000;
+  --racing-yellow: #FFD700;
+}
+
+@layer base {
+  body {
+    @apply antialiased font-sans transition-colors duration-300;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Headings: McLaren uses bold, tight, slightly italic */
+  h1, h2, h3 {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Glassmorphism - light mode: frosted white */
+.glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Glassmorphism - dark mode: anthracite tint */
+.dark .glass {
+  background: rgba(26, 26, 26, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Papaya Glow Utilities */
+.papaya-glow {
+  box-shadow: 0 0 24px rgba(255, 128, 0, 0.35), 0 2px 8px rgba(255, 128, 0, 0.15);
+}
+
+.papaya-glow-sm {
+  box-shadow: 0 0 12px rgba(255, 128, 0, 0.25);
+}
+
+/* Racing Stripe Divider */
+.racing-stripe {
+  height: 3px;
+  background: linear-gradient(90deg, #FF8000 0%, #FFD700 50%, #FF8000 100%);
+  border-radius: 9999px;
+}
+
+/* McLaren-style card */
+.mclaren-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 128, 0, 0.12);
+  border-radius: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.mclaren-card:hover {
+  border-color: rgba(255, 128, 0, 0.35);
+  box-shadow: 0 4px 24px rgba(255, 128, 0, 0.12);
+}
+
+/* Stat Badge - Papaya */
+.badge-papaya {
+  background: rgba(255, 128, 0, 0.15);
+  color: #FF8000;
+  border: 1px solid rgba(255, 128, 0, 0.25);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Scrollbar - McLaren styled */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF8000;
+  border-radius: 99px;
+  opacity: 0.4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFA040;
+}
+
+/* Animated papaya underline for active states */
+.papaya-underline {
+  position: relative;
+}
+.papaya-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #FF8000;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+.papaya-underline:hover::after,
+.papaya-underline.active::after {
+  transform: scaleX(1);
+}
+
+/* Animate pulse papaya */
+@keyframes papaya-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.animate-papaya-pulse {
+  animation: papaya-pulse 2s ease-in-out infinite;
+}
